@@ -1,0 +1,52 @@
+Total Revenue = SUM('FinancialData'[Revenue])
+
+Total Cost =
+SUM('FinancialData'[Cost of Goods Sold]) +
+SUM('FinancialData'[Operating Expenses])
+
+Gross Profit = SUM('FinancialData'[Gross Profit])
+
+Net Profit = SUM('FinancialData'[Net Profit])
+
+Profit Margin % = DIVIDE([Net Profit], [Total Revenue], 0)
+
+Budgeted Revenue = SUM('FinancialData'[Budgeted Revenue])
+
+Actual Revenue = SUM('FinancialData'[Actual Revenue])
+
+Budget Variance = [Actual Revenue] - [Budgeted Revenue]
+
+Revenue Growth % =
+DIVIDE(
+    [Total Revenue] - CALCULATE([Total Revenue], DATEADD('DateTable'[Date], -1, MONTH)),
+    CALCULATE([Total Revenue], DATEADD('DateTable'[Date], -1, MONTH)),
+    0
+)
+
+Cost Ratio % = DIVIDE([Total Cost], [Total Revenue], 0)
+
+Region-wise Revenue = [Total Revenue]
+
+Category-wise Profitability = [Net Profit]
+
+Best Performing Region =
+TOPN(
+    1,
+    VALUES('FinancialData'[Region]),
+    [Total Revenue],
+    DESC
+)
+
+Best Performing Product Category =
+TOPN(
+    1,
+    VALUES('FinancialData'[Product Category]),
+    [Net Profit],
+    DESC
+)
+
+Channel-wise Profitability =
+CALCULATE(
+    [Net Profit],
+    ALLEXCEPT('FinancialData', 'FinancialData'[Sales Channel])
+)

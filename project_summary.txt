@@ -1,0 +1,15 @@
+Financial KPI Monitoring & Profitability Dashboard
+
+Suggested repository name:
+financial-kpi-monitoring-profitability-dashboard
+
+Suggested repository description:
+A Power BI dashboard project for tracking revenue, cost, profit margin, budget vs actual performance, and profitability insights across regions, products, and channels.
+
+Recommended files to upload:
+- financial_kpi_dashboard.pbix
+- data/financial_kpi_sample_dataset.csv
+- data/financial_kpi_sample_dataset.xlsx
+- README.md
+- screenshots/dashboard-overview.png
+- docs/project-summary.pdf (optional)
